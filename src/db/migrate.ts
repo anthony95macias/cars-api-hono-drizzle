@@ -19,7 +19,7 @@ const main = async () => {
 
 		console.log("Migration Successful!");
 	} catch (error) {
-		console.error(error);
+		console.error('Error during migration:', error);
 		process.exit(1);
 	}
 };

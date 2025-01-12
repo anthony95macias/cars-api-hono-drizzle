@@ -17,12 +17,15 @@ importers:
       drizzle-orm:
         specifier: ^0.38.3
         version: 0.38.3(@cloudflare/workers-types@4.20250109.0)(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(postgres@3.4.5)
+      drizzle-seed:
+        specifier: ^0.3.0
+        version: 0.3.0(drizzle-orm@0.38.3(@cloudflare/workers-types@4.20250109.0)(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(postgres@3.4.5))
       hono:
         specifier: ^4.6.16
         version: 4.6.16
     devDependencies:
       '@cloudflare/vitest-pool-workers':
-        specifier: ^0.5.2
+        specifier: ^0.5.41
         version: 0.5.41(@cloudflare/workers-types@4.20250109.0)(@vitest/runner@2.1.8)(@vitest/snapshot@2.1.8)(vitest@2.1.8(@types/node@22.10.5))
       '@cloudflare/workers-types':
         specifier: ^4.20250109.0
@@ -40,13 +43,13 @@ importers:
         specifier: ^4.19.2
         version: 4.19.2
       typescript:
-        specifier: ^5.5.2
+        specifier: ^5.7.3
         version: 5.7.3
       vitest:
         specifier: 2.1.8
         version: 2.1.8(@types/node@22.10.5)
       wrangler:
-        specifier: ^3.60.3
+        specifier: ^3.101.0
         version: 3.101.0(@cloudflare/workers-types@4.20250109.0)
 
 packages:
@@ -1517,6 +1520,14 @@ packages:
       sqlite3:
         optional: true
 
+  drizzle-seed@0.3.0:
+    resolution: {integrity: sha512-8WSt1WdtYWqClsCxKeAmU/bw8X+weYtuA/h8M3gVc8LiHU2AZX5ZUnvUxwdBsP+SkN26ARGhmU0XIJ2OEmHmfA==}
+    peerDependencies:
+      drizzle-orm: '>=0.36.4'
+    peerDependenciesMeta:
+      drizzle-orm:
+        optional: true
+
   es-module-lexer@1.6.0:
     resolution: {integrity: sha512-qqnD1yMU6tk/jnaMosogGySTZP8YtUgAffA9nMN+E/rjxcfRQ6IEk7IiozUjgxKoFHBGjTLnrHB/YC45r/59EQ==}
 
@@ -1716,6 +1727,9 @@ packages:
 
   printable-characters@1.0.42:
     resolution: {integrity: sha512-dKp+C4iXWK4vVYZmYSd0KBH5F/h1HoZRsbJ82AVKRO3PEo8L4lBS/vLwhVtpwwuYcoIsVY+1JYKR268yn480uQ==}
+
+  pure-rand@6.1.0:
+    resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
 
   readdirp@4.0.2:
     resolution: {integrity: sha512-yDMz9g+VaZkqBYS/ozoBJwaBhTbZo3UNYQHNRw1D3UFQB8oHB4uS/tAODO+ZLjGWmUbKnIlOWO+aaIiAxrUWHA==}
@@ -3412,6 +3426,12 @@ snapshots:
       '@types/pg': 8.11.6
       postgres: 3.4.5
 
+  drizzle-seed@0.3.0(drizzle-orm@0.38.3(@cloudflare/workers-types@4.20250109.0)(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(postgres@3.4.5)):
+    dependencies:
+      pure-rand: 6.1.0
+    optionalDependencies:
+      drizzle-orm: 0.38.3(@cloudflare/workers-types@4.20250109.0)(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(postgres@3.4.5)
+
   es-module-lexer@1.6.0: {}
 
   esbuild-register@3.6.0(esbuild@0.19.12):
@@ -3716,6 +3736,8 @@ snapshots:
   postgres@3.4.5: {}
 
   printable-characters@1.0.42: {}
+
+  pure-rand@6.1.0: {}
 
   readdirp@4.0.2: {}
 

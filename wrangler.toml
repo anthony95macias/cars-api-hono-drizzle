@@ -1,7 +1,8 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "cars-api-deno"
 main = "src/index.ts"
-compatibility_date = "2025-01-09"
+compatibility_date = "2025-01-12"
+compatibility_flags = ["nodejs_compat"]
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/

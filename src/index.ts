@@ -13,6 +13,9 @@
 
 // src/index.ts
 import { Hono } from 'hono';
+import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
+import { products } from './db/schema';
 
 export type Env = {
   DATABASE_URL: string;
@@ -24,6 +27,18 @@ app.get('/', (c) => {
   return c.json({
     message: 'Hello World!',
   });
+});
+
+app.get('/products', async (c) => {
+  try {
+    const sql = neon(c.env.DATABASE_URL);
+    const db = drizzle({ client: sql });
+    const productList = await db.select().from(products);
+    return c.json(productList);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return c.json({ error: 'Failed to fetch products' }, 500);
+  }
 });
 
 export default app;
